@@ -25,12 +25,12 @@
 #include <dirent.h>
 
 /* valid options in config files */
-char *validCharOptions[] = { "fromaddr",
+char const*validCharOptions[] = { "fromaddr",
 			     "sendmail",
 			     "template",
 			     NULL
 };
-char *validIntOptions[] = { "sendtime",
+char const*validIntOptions[] = { "sendtime",
 			    "resendtime",
 			    "maxlines",
 			    NULL
@@ -173,12 +173,12 @@ int inConfig::parseConfig(char *afilename) {
 
 
 /* keeps a pointer to the last param name found */
-char *param_name = NULL;
+char const*param_name = NULL;
 
 /* checks if lhs is in optionset, then set value for newp
    return 0 on success */
-int setParam(char *lhs, char *optionset[], inParam* newp, char *value) {
-  char **vo = optionset;
+int setParam(char const*lhs, char const*optionset[], inParam* newp, char *value) {
+  char const**vo = optionset;
   while (*vo) {
     if (strcasecmp(lhs, *vo) == 0) {
       param_name = *vo;

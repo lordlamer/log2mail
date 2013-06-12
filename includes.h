@@ -36,7 +36,7 @@ class inDaemon;
 extern class inDaemon *thisDaemon;
 
 /* main.cc */
-int printlog(int priority, char *format, ...);
+int printlog(int priority, char const*format, ...);
 
 /* needed for map to sort char* */
 struct ltstr
@@ -91,7 +91,7 @@ class inParam {
 
   /* returns 0 on success */
   virtual int setValue(int) = 0;
-  virtual int setValue(char*) = 0;
+  virtual int setValue(char const*) = 0;
 };
 
 class inPChar : public inParam {
@@ -100,7 +100,7 @@ class inPChar : public inParam {
 
  public:
   inPChar() { value = NULL; }
-  inPChar(char *avalue) { value = NULL; setValue(avalue); }
+  inPChar(char const*avalue) { value = NULL; setValue(avalue); }
   virtual ~inPChar() { if (value) free(value); }
 
   virtual char *getValueAsChar() { return value; }
@@ -108,7 +108,7 @@ class inPChar : public inParam {
     printlog(LOG_ERR, "inPChar::getValueAsInt() virtual method called\n");
     exit(1);
   }
-  virtual int setValue(char *avalue) {
+  virtual int setValue(char const*avalue) {
     if (value) free(value);
     value = strdup(avalue);
     return (value == NULL);
@@ -131,7 +131,7 @@ class inPInt : public inParam {
     value = avalue;
     return 0;
   }
-  virtual int setValue(char *avalue) {
+  virtual int setValue(char const*avalue) {
     if (avalue) {
       char *endptr;
       int i = strtol(avalue, &endptr, 10);
@@ -161,10 +161,8 @@ class inParams {
 
   /* returns 0 on success */
   int setParam(const char *aparam, inParam *avalue) {
-    char *param;
-    param = strdup(aparam);
-    if ( (param) && (avalue) ) {
-      params[param] = avalue;
+    if ( (aparam) && (avalue) ) {
+      params[aparam] = avalue;
       return 0;
     } else 
       return 1;

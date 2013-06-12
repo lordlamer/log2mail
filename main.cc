@@ -33,7 +33,7 @@ void usage (char *name) {
 
 int bUseSyslog = 0;
 
-int printlog(int priority, char *format, ...) {
+int printlog(int priority, char const*format, ...) {
   va_list ap;
   if (bUseSyslog) {
     int n, size = 100;

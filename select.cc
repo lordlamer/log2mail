@@ -256,7 +256,7 @@ int inMsg::sendMessage() {
 	       cSendmail);
       return 1;
     }
-    fprintf(sendmail, "%.*s", msg.size(), msg.data());
+    fprintf(sendmail, "%.*s", (int)msg.size(), msg.data());
     
 #ifdef DEBUG
     printlog(LOG_DEBUG, "inDaemon::sendMessage: message sent.\n");
