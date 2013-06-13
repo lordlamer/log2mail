@@ -28,7 +28,7 @@ case "$1" in
 	    adduser --system --home /etc/log2mail --no-create-home \
 		--ingroup adm log2mail
 	fi
-	chown -R log2mail.adm /etc/log2mail
+	chown -R log2mail:adm /etc/log2mail
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
