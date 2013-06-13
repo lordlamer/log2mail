@@ -1,3 +1,13 @@
+log2mail (0.3.0-2.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Upgrade to Standards-Version: 3.9.4.
+  * changed compat to 5
+  * fixed deprecated syntax of chown in postinst
+  * add misc depends in control
+
+ -- Frank Habermann <lordlamer@lordlamer.de>  Wed, 13 Jun 2013 15:03:00 +0200
+
 log2mail (0.3.0-2.1) unstable; urgency=low
 
   * Non-maintainer upload.
