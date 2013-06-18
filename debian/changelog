@@ -1,3 +1,10 @@
+log2mail (0.3.1-1) unstable; urgency=low
+
+  * new upstream release
+  * take ownership
+
+ -- Frank Habermann <lordlamer@lordlamer.de>  Tue, 18 Jun 2013 13:45:00 +0200
+
 log2mail (0.3.0-2.2) unstable; urgency=low
 
   * Non-maintainer upload.

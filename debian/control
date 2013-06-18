@@ -1,7 +1,7 @@
 Source: log2mail
 Section: admin
 Priority: optional
-Maintainer: Qingning Huo <qhuo@mayhq.co.uk>
+Maintainer: Frank Habermann <lordlamer@lordlamer.de>
 Standards-Version: 3.9.4
 Build-Depends: debhelper (>= 4.1), cdbs, dh-buildinfo
 
